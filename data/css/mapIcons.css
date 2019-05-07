@@ -1,0 +1,63 @@
+icon {
+  display: block;
+  position: absolute;
+  left: var(--left);
+  top: var(--top);
+  width: var(--lightRadius);
+  height: var(--lightRadius);
+  background-size: var(--size), var(--size);
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Arial;
+  font-size: 1.3vw;
+  font-weight: bold;
+  border-radius: 9999px;
+  transform-origin: center;
+  transform: translate(-50%,-50%) rotate(var(--rotate));
+}
+icon[editing="1"] {
+  background-color: darkcyan;
+}
+/*streetlamp*/
+icon[imageID="3"] {
+  background-image: url(/img/streetlampOff.png);
+}
+icon[imageID="3"][state="1"] {
+  background-image: url(/img/streetlampOn.png);
+  border-radius: 9999px;
+  background-color: rgba(255,255,0,.35);
+}
+/*flolight*/
+icon[imageID="4"] {
+  background-image: url(/img/flolightOff.png);
+}
+icon[imageID="4"][state="1"] {
+  background-image: url(/img/flolightOn.png);
+  background-color: rgba(255, 255, 0, .35);
+}
+/*LDR*/
+icon[imageID="6"] {
+  background-image: url("/img/LDROff.png");
+  font-size: 2pt;
+  text-align: center;
+  vertical-align: middle;
+  color: red;
+}
+icon[imageID="6"]:after {
+  content: var(--value);
+  height: var(--lightRadius);
+  width: var(--lightRadius);
+  display: table-cell;
+  padding: 2.5px 0 0 0;
+}
+icon[imageID="6"][state="1"] {
+  background-image: url("/img/LDROn.png");
+  color: green;
+}
+/*Relay*/
+icon[imageID="2"] {
+	background-image: url(/img/buttonSwitchOff.png);
+}
+icon[imageID="2"][state="1"] {
+	background-image: url(/img/buttonSwitchOn.png);
+}

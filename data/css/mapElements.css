@@ -1,0 +1,100 @@
+/* mapElements.css */
+body {
+  margin: 0;
+  padding: 0;
+}
+  
+#mapContainer {
+  width: var(--zoomedImageWidth);
+  height: var(--windowHeight);
+  background-color: darkblue;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#mapTitle {
+  font-family: arial;
+  font-size: 16px;
+  font-weight: bold;
+  color: darkblue;
+  text-align: center;
+  zoom: var(--zoomAdjust);
+}
+#mapSubtitle {
+  font-family: arial;
+  font-size: 14px;
+  color: darkblue;
+  text-align: center;
+  zoom: var(--zoomAdjust);
+}
+#mapTitle:after {
+  content: var(--mapTitle);
+}
+#mapSubtitle:after {
+  content: var(--mapSubtitle);
+}
+
+#mapImage {
+  position: relative;
+  overflow: hidden;
+  content: "";
+  position: relative;
+  width: var(--clippedImageWidth);
+  height: var(--clippedImageHeight);
+  z-index: -1;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: var(--zoomedImageWidth), var(--zoomedImageHeight);
+  z-index: 1;
+  background-color: white;
+  transform: scale(1);
+  background-position-x: var(--backgroundPositionX);
+  background-position-y: var(--backgroundPositionY);
+  zoom: var(--imageZoom);
+  display: table-cell;
+}
+    
+.mapArea {
+  position: absolute;
+  content: "";
+  top: var(--top);
+  height: var(--height);
+  left: var(--left);
+  width: var(--width);
+  /* border: dashed 1pt rgba(136,14,79,.2); */
+  /* background-color: rgba(136,14,79,0.03); */
+}  
+#mapContainer[overview="0"] .mapArea {
+  display: none;
+}
+
+#zoomOut {
+  background-image: url('/img/zoomOut.png');
+  width: 36px;
+  height: 36px;
+  background-size: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  zoom: var(--zoomAdjust);
+}
+#mapContainer[overview="1"] #zoomOut {
+  display: none;
+}
+
+.mapArrow {
+  background-image: url('/img/pathArrow.png');
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  display: block;
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  zoom: var(--zoomAdjust);
+  transform: rotate(var(--rotate)) translate(-50%,-50%);
+}
+#mapContainer[overview="1"] .mapArrow {
+  display: none;
+}
